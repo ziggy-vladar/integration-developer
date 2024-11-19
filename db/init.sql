@@ -1,11 +1,3 @@
--- -----
--- flush
--- -----
-
--- DROP DATABASE IF EXISTS music;
--- DROP USER IF EXISTS "user"@"localhost";
-
-
 -- ---------------
 -- create database
 -- ---------------
@@ -113,11 +105,3 @@ INSERT INTO `music`.`Albums` (`AlbumName`, `DateReleased`, `ArtistId`, `GenreId`
     ("Infidels", "1983-10-27", 14, 10),
     ("Future Shock", "1983-08-01", 15, 11),
     ("Synchronicity", "1983-06-17", 16, 2);
-
--- -----------
--- create user
--- -----------
-
--- CREATE USER "user"@"localhost" IDENTIFIED BY "password";
--- GRANT ALL PRIVILEGES ON music.* TO "user"@"localhost";
--- FLUSH PRIVILEGES;

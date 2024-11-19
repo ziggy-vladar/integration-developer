@@ -2,8 +2,8 @@
 -- flush
 -- -----
 
-DROP DATABASE IF EXISTS music;
-DROP USER IF EXISTS "user"@"localhost";
+-- DROP DATABASE IF EXISTS music;
+-- DROP USER IF EXISTS "user"@"localhost";
 
 
 -- ---------------
@@ -118,6 +118,6 @@ INSERT INTO `music`.`Albums` (`AlbumName`, `DateReleased`, `ArtistId`, `GenreId`
 -- create user
 -- -----------
 
-CREATE USER "user"@"localhost" IDENTIFIED BY "password";
-GRANT ALL PRIVILEGES ON music.* TO "user"@"localhost";
-FLUSH PRIVILEGES;
+-- CREATE USER "user"@"localhost" IDENTIFIED BY "password";
+-- GRANT ALL PRIVILEGES ON music.* TO "user"@"localhost";
+-- FLUSH PRIVILEGES;

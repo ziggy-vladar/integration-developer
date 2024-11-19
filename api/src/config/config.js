@@ -1,9 +1,9 @@
 module.exports = {
   development: {
-    username: process.env.MYSQL_API_USER,
-    password: process.env.MYSQL_API_PASSWORD,
+    username: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
     database: 'music',
-    host: process.env.DB_HOST,
+    host: 'mysql',
     port: 3306,
     dialect: 'mysql',
   },

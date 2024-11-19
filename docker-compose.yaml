@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # Set the root password here
+      MYSQL_DATABASE: music              # Optional: create a default database
+      MYSQL_USER: user                   # Optional: create a new user
+      MYSQL_PASSWORD: password           # Optional: set the new user's password
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+  nodejs:
+    build:
+      context: ./api
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      MYSQL_USER: user                   # Optional: create a new user
+      MYSQL_PASSWORD: password           # Optional: set the new user's password
+      MYSQL_DATABASE: music
+      MYSQL_ROOT_PASSWORD: rootpassword  # Set the root password here
+    depends_on:
+      - mysql
+    command: sh -c './wait-for mysql:3306 -- node src/app.js'
+
+
+
+
+#  nginx:
+#    image: nginx:latest
+#    container_name: nginx
+#    ports:
+#      - "8080:8080"
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+#      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
+#    depends_on:
+#      - nodejs
+ 

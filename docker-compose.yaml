@@ -6,10 +6,10 @@ services:
     container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword  # Set the root password here
-      MYSQL_DATABASE: music              # Optional: create a default database
-      MYSQL_USER: user                   # Optional: create a new user
-      MYSQL_PASSWORD: password           # Optional: set the new user's password
+      MYSQL_ROOT_PASSWORD: my-exremely-strong-root-password
+      MYSQL_DATABASE: music
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     ports:
@@ -21,14 +21,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      NODE_ENV: development
       MYSQL_USER: user                   # Optional: create a new user
       MYSQL_PASSWORD: password           # Optional: set the new user's password
       MYSQL_DATABASE: music
-      MYSQL_ROOT_PASSWORD: rootpassword  # Set the root password here
     depends_on:
       - mysql
-    command: sh -c './wait-for mysql:3306 -- node src/app.js'
+    command: sh -c './wait-for mysql:3306 -- npm start'
 
 
 

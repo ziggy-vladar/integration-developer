@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const albumsRouter = require('./routes/albums');
 const artistsRouter = require('./routes/artists');
 const genresRouter = require('./routes/genres');

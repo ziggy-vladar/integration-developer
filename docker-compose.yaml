@@ -21,24 +21,9 @@ services:
     ports:
       - "3000:3000"
     environment:
-      MYSQL_USER: user                   # Optional: create a new user
-      MYSQL_PASSWORD: password           # Optional: set the new user's password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
       MYSQL_DATABASE: music
     depends_on:
       - mysql
     command: sh -c './wait-for mysql:3306 -- npm start'
-
-
-
-
-#  nginx:
-#    image: nginx:latest
-#    container_name: nginx
-#    ports:
-#      - "8080:8080"
-#    volumes:
-#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-#      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
-#    depends_on:
-#      - nodejs
- 
